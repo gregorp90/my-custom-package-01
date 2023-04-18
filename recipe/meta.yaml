@@ -30,7 +30,6 @@ about:
   license: MIT
   summary: {{ data.description }}
 
-
 channels:
   - conda-forge
   - defaults

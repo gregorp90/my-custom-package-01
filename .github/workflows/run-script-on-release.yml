@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref_name }}
 
     - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v2
@@ -27,15 +29,17 @@ jobs:
       run: |
         conda install conda-build anaconda-client
 
-    - name: Run Shell Script
-      shell: bash -l {0}
-      env:
-        ANACONDA_USERNAME: ${{ secrets.ANACONDA_USERNAME }}
-        ANACONDA_PASSWORD: ${{ secrets.ANACONDA_PASSWORD }}
-      run: |
-        chmod +x ./build_and_upload.sh
-        RELEASE_VERSION=${{ github.event.release.tag_name }}
-        ./build_and_upload.sh $RELEASE_VERSION
+#    - name: Run Shell Script
+#      shell: bash -l {0}
+#      env:
+#        ANACONDA_USERNAME: ${{ secrets.ANACONDA_USERNAME }}
+#        ANACONDA_PASSWORD: ${{ secrets.ANACONDA_PASSWORD }}
+#      run: |
+#        chmod +x ./build_and_upload.sh
+#        RELEASE_VERSION=${{ github.event.release.tag_name }}
+#        ./build_and_upload.sh $RELEASE_VERSION
+    - name: Create file
+      shell: echo 'some stuff' > ./your_file.txt
 
     - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
       run: |
