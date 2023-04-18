@@ -39,7 +39,7 @@ jobs:
 #        RELEASE_VERSION=${{ github.event.release.tag_name }}
 #        ./build_and_upload.sh $RELEASE_VERSION
     - name: Create file
-      shell: echo 'some stuff' > ./your_file.txt
+      run: echo 'some stuff' > ./your_file.txt
 
     - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
       run: |
