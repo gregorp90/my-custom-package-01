@@ -51,14 +51,14 @@ jobs:
 
     - name: Commit and push the new file
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_PAT: ${{ secrets.GH_PAT }}
       run: |
         # Configure Git
         git config user.name "Your Name"
         git config user.email "your.email@example.com"
         
         # Set up authentication
-        git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        git remote set-url origin https://${GITHUB_ACTOR}:${GH_PAT}@github.com/${GITHUB_REPOSITORY}.git
         
         # Checkout main branch
         git fetch
