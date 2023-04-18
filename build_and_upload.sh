@@ -2,13 +2,15 @@
 
 # Get the release version from the command line argument
 release_version=$1
-username=$2
-password=$3
+
+username=$ANACONDA_USERNAME
+password=$ANACONDA_PASSWORD
+
 
 echo $release_version
 
 # Update the version in the setup.py file
-sed -i "" "s/version=.*/version='$release_version',/" setup.py
+sed -i "s/version=.*/version='$release_version',/" setup.py
 
 # Build the package
 conda build recipe -c defaults -c conda-forge
