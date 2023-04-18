@@ -33,6 +33,6 @@ jobs:
         ANACONDA_USERNAME: ${{ secrets.ANACONDA_USERNAME }}
         ANACONDA_PASSWORD: ${{ secrets.ANACONDA_PASSWORD }}
       run: |
-        chmod +x build_and_upload.sh
+        chmod +x ./build_and_upload.sh
         RELEASE_VERSION=${{ github.event.release.tag_name }}
-        build_and_upload.sh $RELEASE_VERSION
+        ./build_and_upload.sh $RELEASE_VERSION
