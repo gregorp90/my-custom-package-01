@@ -22,3 +22,6 @@ package_file_path=$(conda build recipe --output)
 anaconda login --username $username --password $password
 anaconda upload -u $username --label main --private $package_file_path
 anaconda logout
+
+# Copy the package to the repository
+cp $package_file_path .

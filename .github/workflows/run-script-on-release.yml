@@ -36,3 +36,10 @@ jobs:
         chmod +x ./build_and_upload.sh
         RELEASE_VERSION=${{ github.event.release.tag_name }}
         ./build_and_upload.sh $RELEASE_VERSION
+
+    - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
+      run: |
+        git config --global user.name "Git actions"
+        git config --global user.email "username@users.noreply.github.com"
+        git commit -a -m "Commit new version"
+        git push
