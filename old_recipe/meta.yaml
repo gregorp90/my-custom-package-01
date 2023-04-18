@@ -1,0 +1,36 @@
+package:
+  name: my-custom-package-01
+  version: 1.0.1
+
+source:
+  path: ..
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - 'python>=3.10'
+    - 'pandas>=1.5.0,<2'
+    - 'pika>=1.3.0'
+
+test:
+  imports:
+    - my_custom_package_01
+
+about:
+  home: https://github.com/username/my-package
+  license: MIT
+  summary: 'A short description of my package'
+  description: 'A longer description of my package'
+  doc_url: https://my-package.readthedocs.io
+  dev_url: https://github.com/username/my-package
+
+channels:
+  - conda-forge
+  - defaults

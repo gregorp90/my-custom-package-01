@@ -1,0 +1,36 @@
+{% set data = load_setup_py_data(setup_file='../setup.py', from_recipe_dir=True) %}
+
+package:
+  name: {{ data.name }}
+  version: {{ data.version }}
+
+source:
+  path: ..
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    {% for dep in data.install_requires %}
+    - {{ dep }}
+    {% endfor %}
+
+test:
+  imports:
+    - my_custom_package_01
+
+about:
+  home: {{ data.url }}
+  license: MIT
+  summary: {{ data.description }}
+
+
+channels:
+  - conda-forge
+  - defaults
