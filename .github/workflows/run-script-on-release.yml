@@ -15,19 +15,19 @@ jobs:
       with:
         ref: ${{ github.ref_name }}
 
-    - name: Set up Miniconda
-      uses: conda-incubator/setup-miniconda@v2
-      with:
-        miniforge-variant: Mambaforge
-        miniforge-version: latest
-        activate-environment: build_env
-        auto-activate-base: false
-        mamba-version: '*'
-
-    - name: Install dependencies
-      shell: bash -l {0}
-      run: |
-        conda install conda-build anaconda-client
+#    - name: Set up Miniconda
+#      uses: conda-incubator/setup-miniconda@v2
+#      with:
+#        miniforge-variant: Mambaforge
+#        miniforge-version: latest
+#        activate-environment: build_env
+#        auto-activate-base: false
+#        mamba-version: '*'
+#
+#    - name: Install dependencies
+#      shell: bash -l {0}
+#      run: |
+#        conda install conda-build anaconda-client
 
 #    - name: Run Shell Script
 #      shell: bash -l {0}
@@ -45,5 +45,6 @@ jobs:
       run: |
         git config --global user.name "Git actions"
         git config --global user.email "username@users.noreply.github.com"
+        git add ./your_file.txt
         git commit -a -m "Commit new version"
         git push
