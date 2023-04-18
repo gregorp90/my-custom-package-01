@@ -20,7 +20,6 @@ jobs:
         miniforge-version: latest
         activate-environment: build_env
         auto-activate-base: false
-        conda-utils-version: '*'
         mamba-version: '*'
 
     - name: Install dependencies
