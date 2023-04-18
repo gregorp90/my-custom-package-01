@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="my_package_01",
-    version='1.0.5',
+    version='0.0.12',
     packages=find_packages(),
     install_requires=[
         "python>=3.10",
