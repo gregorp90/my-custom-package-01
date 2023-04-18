@@ -50,21 +50,31 @@ jobs:
 #        git push origin HEAD:develop --force
 
     - name: Commit and push the new file
-      env:
-        GH_PAT: ${{ secrets.GH_PAT }}
-      run: |
-        # Configure Git
-        git config user.name "Your Name"
-        git config user.email "your.email@example.com"
-        
-        # Set up authentication
-        git remote set-url origin https://gregorp90:${GH_PAT}@github.com/${GITHUB_REPOSITORY}.git
-        
-        # Checkout main branch
-        git fetch
-        git checkout develop
-        
-        # Commit and push changes
-        git add your_file.txt
-        git commit -m "Add generated file on release"
-        git push
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GH_PAT }}
+        publish_dir: '.'
+        publish_branch: develop
+        allow_empty_commit: false
+        force_orphan: false
+        commit_message: "Add generated file on release"
+
+#    - name: Commit and push the new file
+#      env:
+#        GH_PAT: ${{ secrets.GH_PAT }}
+#      run: |
+#        # Configure Git
+#        git config user.name "Your Name"
+#        git config user.email "your.email@example.com"
+#
+#        # Set up authentication
+#        git remote set-url origin https://gregorp90:${GH_PAT}@github.com/${GITHUB_REPOSITORY}.git
+#
+#        # Checkout main branch
+#        git fetch
+#        git checkout develop
+#
+#        # Commit and push changes
+#        git add your_file.txt
+#        git commit -m "Add generated file on release"
+#        git push
