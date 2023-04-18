@@ -58,7 +58,7 @@ jobs:
         git config user.email "your.email@example.com"
         
         # Set up authentication
-        git remote set-url origin https://${GITHUB_ACTOR}:${GH_PAT}@github.com/${GITHUB_REPOSITORY}.git
+        git remote set-url origin https://gregorp90:${GH_PAT}@github.com/${GITHUB_REPOSITORY}.git
         
         # Checkout main branch
         git fetch
