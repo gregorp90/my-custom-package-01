@@ -47,4 +47,4 @@ jobs:
         git config --global user.email "username@users.noreply.github.com"
         git add ./your_file.txt
         git commit -a -m "Commit new version"
-        git push
+        git push origin HEAD:develop --force
