@@ -1,0 +1,28 @@
+{
+  "info": {
+    "subdir": "noarch"
+  },
+  "packages": {
+    "my_package_01-0.0.12-py_0.tar.bz2": {
+      "build": "py_0",
+      "build_number": 0,
+      "depends": [
+        "pandas >=1.5.0,<2",
+        "pika >=1.3.0",
+        "python >=3.10"
+      ],
+      "license": "MIT",
+      "md5": "3075ce172aa5af10315b2c5a7887c83e",
+      "name": "my_package_01",
+      "noarch": "python",
+      "sha256": "6f5cd91f02d3bf5182711c82f5384429120528da3a42e92767e2a60cec4ab11f",
+      "size": 5693,
+      "subdir": "noarch",
+      "timestamp": 1681825856496,
+      "version": "0.0.12"
+    }
+  },
+  "packages.conda": {},
+  "removed": [],
+  "repodata_version": 1
+}
